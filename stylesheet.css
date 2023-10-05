@@ -1,0 +1,121 @@
+/* Gaya untuk elemen-elemen HTML */
+html,
+body,
+h1,
+h2,
+p,
+span,
+div {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.top-dashboard {
+  padding: 100px 0 100px 0;
+  background-image: url("background.png");
+  background-size: cover;
+  color: white;
+  text-align: center;
+}
+
+.container {
+  width: 1000px;
+  height: 768px;
+  margin: 0 auto;
+}
+
+.top-dashboard h1 {
+  font-size: 45px;
+  margin-bottom: 10px;
+  letter-spacing: 5px;
+  padding-bottom: 30px;
+}
+
+.box-informasi-transaksi {
+  background-position: center;
+  padding: 70px 100px 150px 100px;
+  margin-left: 10px;
+  text-align: center;
+  background: #ffff;
+  border-radius: 30px;
+}
+
+.box-info {
+  float: left;
+  width: 30%;
+  opacity: 10;
+  color: black;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.top-dashboard h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.top-dashboard p {
+  font-size: 30px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+#saldo,
+#tarik-saldo,
+#total-saldo {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.saldo-masuk-dan-keluar {
+  height: 1000px;
+  padding: 70px 50px;
+  margin-left: 10px;
+  text-align: center;
+}
+
+.box-input-saldo {
+  float: left;
+  width: 50%;
+}
+
+.box-input-saldo h3 {
+  font-size: 30px;
+  margin: 0px;
+}
+
+.box-input-saldo p {
+  font-size: 10px;
+  opacity: 70%;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-success {
+  background-color: green;
+  color: white;
+}
+
+.btn-danger {
+  background-color: red;
+  color: white;
+}
