@@ -1,24 +1,26 @@
-# Challange Chapter 2
+# Challange Chapter 2 - Basic Banking System
 
-## Studi Kasus
+## Study Case
 
-Dalam studi kasus ini, kita akan membuat sebuah Basic Banking System sederhana menggunakan konsep Pemrograman Berorientasi Objek (OOP) dan mensimulasikan operasi transaksi yang asynchronous.
+🚩Welcome to the Basic Banking System! This simple yet effective system allows you to manage your finances easily. It's built using the principles of Object-Oriented Programming (OOP) and simulates asynchronous transaction operations. With this system, you can deposit and withdraw money securely.
 
-## Kriteria yang harus dilakukan:
+## Criteria to be accomplished:
 
-1. Membuat repositori baru di GitHub dengan nama "Basic-Banking-System"
-2. Salin file bank_account.js Challenge 1 ke direktori proyek di repositori baru
-3. Membuat file JavaScript baru dengan nama banking_system.js
-4. Implementasikan kelas BankAccount dengan metode deposit() dan withdraw()
-5. Gunakan setTimeout() untuk mensimulasikan operasi transaksi yang asynchronous
-6. Commit dan push perubahan ke repositori GitHub
+1. Create a new GitHub repository named "Basic-Banking-System."
+2. Copy the bank_account.js file from Challenge 1 to the project directory in the new repository.
+3. Create a new JavaScript file named banking_system.js.
+4. Implement the BankAccount class with deposit() and withdraw() methods.
+5. Use setTimeout() to simulate asynchronous transaction operations.
+6. Commit and push the changes to the GitHub repository.
 
-## Ikuti langkah-langkah berikut:
+## The steps:
 
-● Buatlah repositori baru di GitHub dengan nama Basic-Banking-System.
-● Salin file bank_account.js dari Challenge 1 ke direktori proyek di repositori baru tersebut. File ini akan berisi definisi kelas BankAccount yang akan digunakan dalam implementasi sistem perbankan.
-● Buatlah file JavaScript baru dengan nama banking_system.js. File ini akan menjadi pusat implementasi sistem perbankan menggunakan konsep OOP
-● Implementasikan kelas BankAccount dengan minimal dua metode:
-● deposit(amount): Metode ini akan menerima jumlah uang yang akan disimpan ke dalam akun.
-● withdraw(amount): Metode ini akan menerima jumlah uang yang akan ditarik dari akun, asalkan saldo mencukupi.
-● Gunakan fungsi setTimeout() untuk mensimulasikan operasi transaksi yang asynchronous. Misalnya, setelah melakukan deposit atau withdrawal,Anda dapat menunda eksekusi selama beberapa detik sebelum mengembalikan hasil operasi.
+- Create a new GitHub repository named Basic-Banking-System.
+- Copy the bank_account.js file from Challenge 1 to the project directory in the new repository. This file will contain the definition of the BankAccount class used in the banking system implementation.
+- Create a new JavaScript file named banking_system.js. This file will serve as the central implementation of the banking system using the OOP concept.
+- Implement the BankAccount class with at least two methods:
+
+1. deposit(amount): This method will receive the amount of money to be deposited into the account.
+2. withdraw(amount): This method will receive the amount of money to be withdrawn from the account, provided that the balance is sufficient.
+
+- Use the setTimeout() function to simulate asynchronous transaction operations. For example, after performing a deposit or withdrawal, you can delay the execution for a few seconds before returning the operation's result.
