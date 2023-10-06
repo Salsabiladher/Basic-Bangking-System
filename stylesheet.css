@@ -15,7 +15,7 @@ body {
 }
 
 .top-dashboard {
-  padding: 100px 0 100px 0;
+  padding: 100px 0;
   background-image: url("background.png");
   background-size: cover;
   color: white;
@@ -23,8 +23,7 @@ body {
 }
 
 .container {
-  width: 1000px;
-  height: 768px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -40,17 +39,16 @@ body {
   padding: 70px 100px 150px 100px;
   margin-left: 10px;
   text-align: center;
-  background: #ffff;
+  background: #ffffff; /* Ubah warna latar belakang ke putih */
   border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Tambah bayangan */
 }
 
 .box-info {
   float: left;
   width: 30%;
-  opacity: 10;
   color: black;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px;
 }
 
 .top-dashboard h2 {
@@ -72,7 +70,6 @@ body {
 }
 
 .saldo-masuk-dan-keluar {
-  height: 1000px;
   padding: 70px 50px;
   margin-left: 10px;
   text-align: center;
@@ -89,7 +86,7 @@ body {
 }
 
 .box-input-saldo p {
-  font-size: 10px;
+  font-size: 14px; /* Ubah ukuran font */
   opacity: 70%;
 }
 
@@ -97,7 +94,7 @@ body {
   width: 100%;
   padding: 10px;
   font-size: 16px;
-  border: none;
+  border: 1px solid #ccc; /* Ubah border */
   border-radius: 5px;
   margin-bottom: 10px;
 }
