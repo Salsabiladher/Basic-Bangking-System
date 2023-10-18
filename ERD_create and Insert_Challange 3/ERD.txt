@@ -1,0 +1,28 @@
+Table customer {
+id SERIAL PK
+name varchar
+address varchar
+no_telp BIGINT
+date_birth date
+current_ituation varchar
+name_mother varchar
+email varchar
+}
+
+Table account {
+id SERIAL PK
+type_account integer 
+debit integer
+customerId integer
+}
+
+Table transaction {
+  id SERIAL PK
+  transactionType varchar
+  total integer
+  transaction_date date 
+  accountId integer
+}
+
+Ref: customer.id < account.customerId
+Ref: account.id < transaction.accountId
