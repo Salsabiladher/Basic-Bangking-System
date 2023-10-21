@@ -1,8 +1,7 @@
-
 -- DLL (Data Definition Language)
 -- Membuat tabel customer, account, and transaction. 
 CREATE TABLE nasabah(
-  customer_id SERIAL PRIMARY KEY,  -- Mengubah menjadi SERIAL
+  customer_id SERIAL PRIMARY KEY,  
   customer_name VARCHAR(255) NOT NULL,
   address VARCHAR(255) NOT NULL,
   phone BIGINT NOT NULL,
@@ -13,28 +12,25 @@ CREATE TABLE nasabah(
 );
 
 CREATE TABLE akun(
-  account_id SERIAL PRIMARY KEY,  -- Mengubah menjadi SERIAL
+  account_id SERIAL PRIMARY KEY, 
   type_account VARCHAR(255) NOT NULL,
-  debit DECIMAL(10, 2),
-  customer_id INT NOT NULL,
-  CONSTRAINT fk_akun_customer FOREIGN KEY (customer_id) REFERENCES nasabah(customer_id)
-);
+  debit DECIMAL(10, 2)
+  );
 
-CREATE TABLE transaksi(
-  transaction_id SERIAL PRIMARY KEY,  -- Mengubah menjadi SERIAL
+CREATE TABLE transaksi (
+  transaction_id SERIAL PRIMARY KEY,
   type_transaction VARCHAR(255) NOT NULL,
-  total_transaction DECIMAL(10, 2),
+  total_transaction INTEGER,
   date_transaction DATE NOT NULL,
-  account_id INT NOT NULL,
-  CONSTRAINT fk_transaksi_akun FOREIGN KEY (account_id) REFERENCES akun(account_id)
+  account_id INTEGER,
+  customer_id INTEGER
 );
 
--- Membuat indeks pada customer_id di tabel nasabah
-CREATE INDEX idx_nasabah_customer_id ON nasabah (customer_id);
--- Membuat indeks pada account_id di tabel akun
-CREATE INDEX idx_akun_account_id ON akun (account_id);
--- Membuat indeks pada transaction_id di tabel transaksi
-CREATE INDEX idx_transaksi_transaction_id ON transaksi (transaction_id);
+-- Membuat indeks pada account_id di tabel transaksi
+CREATE INDEX idx_transaksi_account_id ON transaksi (account_id);
+
+-- Membuat indeks pada customer_id di tabel transaksi
+CREATE INDEX idx_transaksi_customer_id ON transaksi (customer_id);
 
 
 -- DML (Data Manipulation Language) or CRUD 
@@ -44,11 +40,11 @@ CREATE INDEX idx_transaksi_transaction_id ON transaksi (transaction_id);
 INSERT INTO nasabah (customer_id, customer_name, address, phone, date_birth, current_situation, name_mother, email)
 VALUES (10012, 'Mark Lee', 'Jalan Tukad Yeh Aya, Denpasar', 85123456789, '1997-02-14', 'Student', 'Debora Lee', 'marklee@gmail.com');
 -- Insert data ke tabel akun
-INSERT INTO akun (account_id, type_account, debit, customer_id)
-VALUES (6012, 'Prioritas', 125000, 10012);
+INSERT INTO akun (account_id, type_account, debit)
+VALUES (6012, 'Prioritas', 125000);
 -- Insert data ke tabel transaksi
-INSERT INTO transaksi (transaction_id, type_transaction, total_transaction, date_transaction, account_id)
-VALUES (10001, 'Deposit', 500000, '2023-10-16', 6012);
+INSERT INTO transaksi (transaction_id, type_transaction, total_transaction, date_transaction, account_id, customer_id)
+VALUES (10001, 'Deposit', 500000, '2023-10-16', 6012, 10012);
 
 -- 2. Update data nasabah, akun dan transaksi
 -- Mengubah nama nasabah
@@ -70,26 +66,26 @@ VALUES
   (10016, 'Lee Johoney', 'Hapjeong-dong, Mapo-gu, Seoul', 6543219870, '2008-06-10', 'Student', 'Im Yuna', 'joohoney@yahoo.com');
 
 -- Insert data baru ke tabel akun
-INSERT INTO akun (account_id, type_account, debit, customer_id)
+INSERT INTO akun (account_id, type_account, debit)
 VALUES 
-  (60013, 'Debitur', 150000, 10013),
-  (60014, 'Prioritas', 75000, 10014),
-  (60015, 'Penyimpan', 500000, 10015),
-  (60016, 'Penyimpan', 250000, 10016);
+  (60013, 'Debitur', 150000),
+  (60014, 'Prioritas', 75000),
+  (60015, 'Penyimpan', 500000),
+  (60016, 'Penyimpan', 250000);
 
 -- Insert data baru ke tabel transaksi
-INSERT INTO transaksi (transaction_id, type_transaction, total_transaction, date_transaction, account_id)
+INSERT INTO transaksi (transaction_id, type_transaction, total_transaction, date_transaction, account_id, customer_id)
 VALUES 
-  (0002, 'Withdrawal', 100000, '2023-10-17', 60013),
-  (0003, 'Deposit', 200000, '2023-10-17', 60014),
-  (0004, 'Withdrawal', 50000, '2023-10-18', 60015),
-  (0005, 'Deposit', 1000000, '2023-10-18', 60016);
+  (0002, 'Withdrawal', 100000, '2023-10-17', 60013, 10013),
+  (0003, 'Deposit', 200000, '2023-10-17', 60014, 10014),
+  (0004, 'Withdrawal', 50000, '2023-10-18', 60015, 10015),
+  (0005, 'Deposit', 1000000, '2023-10-18', 60016, 10016);
 
 -- 4. Insert data ke tabel nasabah, akun, dan transaksi
 -- Hapus data dari tabel transaksi terlebih dahulu
 DELETE FROM transaksi WHERE account_id IN (SELECT account_id FROM akun WHERE customer_id = 10015);
 -- Kemudian, hapus data dari tabel akun
-DELETE FROM akun WHERE customer_id = 10015;
+DELETE FROM transaksi WHERE customer_id = 10015;
 -- Terakhir, hapus data dari tabel nasabah
 DELETE FROM nasabah WHERE customer_id = 10015;
 

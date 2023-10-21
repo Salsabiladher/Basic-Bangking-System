@@ -13,7 +13,6 @@ Table account {
 id SERIAL PK
 type_account integer 
 debit integer
-customerId integer
 }
 
 Table transaction {
@@ -22,7 +21,8 @@ Table transaction {
   total integer
   transaction_date date 
   accountId integer
+  customerId integer
 }
 
-Ref: customer.id < account.customerId
+Ref: customer.id < transaction.customerId
 Ref: account.id < transaction.accountId
